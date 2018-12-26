@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button>Wave</button>
+    <style>
+      button {
+        position: relative;
+        overflow: hidden;
+        border: none;
+        cursor: pointer;
+        color: white;
+        margin: 10px 0 0 10px;
+        padding: 20px 20px;
+        border-radius: 10px;
+        background: grey;
+        animation: pulse 2.5s infinite;
+      }
+
+      button:after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 1px;
+        height: 1px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.5);
+      }
+
+      button:focus:not(:active)::after {
+        animation: ripple 2s ease-out;
+      }
+
+      button:hover {
+        animation: none;
+      }
+
+      @keyframes ripple {
+        0% {
+          transform: scale(0);
+        }
+        100% {
+          transform: scale(150);
+          opacity: 0;
+        }
+      }
+
+      @keyframes pulse {
+        0% {
+          box-shadow: 0 0 0 0 grey;
+        }
+        70% {
+          box-shadow: 0 0 0 15px rgba(204, 169, 44, 0);
+        }
+        100% {
+          box-shadow: 0 0 0 0 rgba(204, 169, 44, 0);
+        }
+      }
+    </style>
+  </body>
+</html>
